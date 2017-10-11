@@ -5,7 +5,7 @@ interface IServiceDB
     public function connect();
     public function getAllWords();
     public function getWordByID($id);
-    public function getWordByName($name);
+    public function getWordsByPartName($name);
     public function getAllCategories();
     public function getCategoryByID($id);
     public function getAllUsers();

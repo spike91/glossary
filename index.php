@@ -13,9 +13,12 @@ require_once "autoloader.php";
 			$db=new PDOService();
 			
 			echo "<pre>";
-			$films=$db->getAllWords();
-			foreach ($films as $film) {
-				var_dump($film);
+			//$words=$db->getAllWords();
+			//$words=$db->getWordsByPartName("rob");
+			//$words=$db->getDescriptionByWordId(1);
+			$words=$db->getUserWordByUserID(1);
+			foreach ($words as $word) {
+				var_dump($word);
 			}
 			echo "</pre>";
         ?>
