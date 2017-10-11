@@ -6,8 +6,7 @@ class PDOService implements IServiceDB
 	
 	public function connect() {	
         try {
-            $this->connectDB = new PDO("mysql:host=".DB_HOST.";dbname=".DB_DATABASE.";charset=".DB_CHARSET, 
-                                DB_USERNAME, DB_PASSWORD);
+            $this->connectDB = new PDO("pgsql:host=".DB_HOST.";dbname=".DB_DATABASE.";user=".DB_USERNAME.";password=".DB_PASSWORD);
         }		
 		catch (PDOException $ex) {
 			printf("Connection failed: %s", $ex->getMessage());
@@ -16,21 +15,50 @@ class PDOService implements IServiceDB
 		return true;
 	}
 	
-	public function getAllFilms()
+	public function getAllWords()
 	{	
-		$films=array();
+		$words=array();
 		if ($this->connect()) {
-			if ($result = $this->connectDB->query('SELECT * FROM film')) {
+			if ($result = $this->connectDB->query('SELECT * FROM glossary.tword')) {
 				$rows = $result->fetchAll(PDO::FETCH_ASSOC);
                 foreach($rows as $row){
-					$films[]=new Film($row['film_id'], $row['title'], $row['description'], 
-										$row['release_year'], $row['language_id'], $row=['length']);
+					$words[]=new Word($row['id_word'], $row['estonian'], $row['russian'], $row['english'], null);
                  } 
 			}
 		}
         $this->connectDB=null;
-		return $films;
+		return $words;
 	}
+
+    public function getWordByID($id){
+		$word=null;
+		if ($this->connect()) {
+			if ($result = $this->connectDB->prepare('SELECT * FROM glossary.word WHERE id_word=:id')) {
+				$result->execute(array('id'=>$id));
+				//$result->execute(['id'=>$id]);
+                // $result->bindValue(':id', $id, PDO::PARAM_INT);
+                // $result->execute();
+				
+				$numRows = $result->rowCount();
+				if ($numRows==1) {
+					$row=$result->fetch();
+					$word=new Word($row[0], $row[1], $row[2], $row[3]);
+				}
+			}
+		}
+        $this->connectDB=null;
+	    return $word;	
+	}
+
+    public function getWordByName($name){
+
+	}
+	public function getDescriptionByWordId($id){}
+    public function getAllCategories(){}
+    public function getCategoryByID($id){}
+    public function getAllUsers(){}
+    public function getUserByID($id){}
+    public function getUserWordByUserID($id){}
 
 	
 	public function getFilmByID($id)
