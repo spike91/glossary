@@ -11,20 +11,14 @@ require_once "autoloader.php";
         <?php
 			///$db=new MySQLiService();
 			$db=new PDOService();
-			foreach ($db->getAllFilms() as $film) {
-				echo $film->id." ".$film->title."<br />";
-			}
-			$film=$db->getFilmByID(3);
-			if (!is_null($film)) {
-				echo "Film found: ".$film->title."<br />";
-			}
-			else {
-				echo "Not found"."<br />";
-			}
+			
 			echo "<pre>";
-			$films=$db->getAllFilmsInfo();
-			foreach ($films as $film) {
-				var_dump($film);
+			//$words=$db->getAllWords();
+			//$words=$db->getWordsByPartName("rob");
+			//$words=$db->getDescriptionByWordId(1);
+			$words=$db->getUserWordByUserID(1);
+			foreach ($words as $word) {
+				var_dump($word);
 			}
 			echo "</pre>";
         ?>
