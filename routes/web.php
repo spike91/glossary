@@ -10,19 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-//Route::group(['middleware' => ['auth']], function() {
-    //Route::get('actors', 'HomeController@actors');
-
-    //Route::post('actors/add', 'ActorController@addActor');
-
-    //Route::get('actors/{actor}/edit', 'ActorController@editActor');
-    //Route::put('actors/{actor}/edit', 'ActorController@updateActor');
-
-    //Route::get('actors/{actor}/delete', 'ActorController@deleteActor');
-
-//});
-
 Route::get("/","HomeController@index");
 
 Route::get('word', 'HomeController@words');
