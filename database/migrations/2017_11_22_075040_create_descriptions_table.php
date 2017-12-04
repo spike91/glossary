@@ -19,7 +19,7 @@ class CreateDescriptionsTable extends Migration
             $table->string("english");
             $table->string("estonian");
             $table->string("russian");
-            $table->string("image");
+            $table->string("image")->nullable();
             //relation
             $table->integer("word_fk")->unsigned();
             $table->foreign('word_fk')->references('id')->on('words');
