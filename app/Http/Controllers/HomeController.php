@@ -53,10 +53,9 @@ class HomeController extends Controller
         return view("pages.getdescription",["word"=>$word,"description"=>$description,"categories"=>$categories]);
     }
 
-    public function categories()
+    public static function categories()
     {
-        $categories=\App\Category::all();
-        return view('pages.categories', compact('categories'));
+        return \App\Category::all();        
     }
 
     public function getWordsByCategory($id)
@@ -70,13 +69,6 @@ class HomeController extends Controller
         $category=\App\Category::find($id);
         $categories=\App\Category::all();
         return view("pages.getword",["words"=>$words,"categories"=>$categories,"category"=>$category]);
-    }
-    
-
-    public function words()
-    {
-        $words=\App\Word::all();
-        return view('pages.words', compact('words'));
     }
 
     /**

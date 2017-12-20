@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container ">
     <div class="row">
-            <div class="col-md-12" >
+            <div class="col-md-12">
                 <div class="header">
-                    <h2><a href="Index.php">Лого какое-нить</a></h2>
+                    <a href="/"><img src="/images/logoo.png" width="200" alt="picture"></a>                
                 </div>
-        </div>
+            </div>
     </div>
 </div>

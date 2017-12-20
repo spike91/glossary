@@ -68,10 +68,10 @@
     right: 0;
     left: 0;
     z-index: 1030;
-    background: #007bff;  
-    color: #fff;  
+    background:  #1E90FF;   
     text-align: center;
-  padding: 10px;
+    padding: 5px;
+    box-shadow:0px 0px 30px #1E90FF; 
   }
   
   .footer {
@@ -80,15 +80,35 @@
     bottom: 0;
     left: 0;
     z-index: 1030;
-    background: #007bff;  
+    background:  #1E90FF;
     color: #fff;  
     text-align: center;
     padding: 10px;
+    box-shadow:0 0 30px #1E90FF; 
   }
   
+  .proba{
+    color:#007bff;
+  }
   .bodyy{
-       padding-top: 100px;
+       padding-top: 150px;
+       padding-left: 25%;
+       background-image: url("/images/1082.jpg");
+       background-size: 2000px 2000px;
     }
+
+  .padd{
+    padding-top: 10px;
+    background-color: #FFFFFF;
+    width: 56%;
+    height: 65%;
+    position: absolute;
+
+    }
+
+.padd2{
+  padding-bottom: 20px;
+  }
 
   html {
     box-sizing: border-box;
@@ -3225,7 +3245,7 @@
   
   .nav-tabs .nav-link.active,
   .nav-tabs .nav-item.show .nav-link {
-    color: #495057;
+    color: #116BC5;
     background-color: #fff;
     border-color: #ddd #ddd #fff;
   }
@@ -3660,7 +3680,7 @@
   .navbar-dark .navbar-nav .active > .nav-link,
   .navbar-dark .navbar-nav .nav-link.show,
   .navbar-dark .navbar-nav .nav-link.active {
-    color: white;
+    color: #FFFFFF;
   }
   
   .navbar-dark .navbar-toggler {

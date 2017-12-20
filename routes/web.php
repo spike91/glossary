@@ -11,11 +11,17 @@
 |
 */
 Route::get("/","HomeController@index");
-
-Route::get('word', 'HomeController@words');
+Route::get("register",function(){
+    return view('auth.register');
+});
+Route::get("login",function(){
+    return view('auth.login');
+});
 Route::get('word/{word_id}/{category_id}', 'HomeController@descriptionByWordAndCategoryID');
 
 Route::get('/{id}', 'HomeController@getWordsByCategory');
 Route::any('search', 'HomeController@getWordsByName');
 
 Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
