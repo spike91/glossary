@@ -35,7 +35,14 @@ Route::group([
 
 	Auth::routes();
 
-	Route::get('/home', 'HomeController@index')->name('home');
+	Route::get('glossary/user/id={id}', 'HomeController@glossaryByUserId');
+
+	Route::get('glossary/add/word/id={id}', 'HomeController@glossaryAddWord');
+
+	Route::get('glossary/delete/word/id={id}', 'HomeController@glossaryDeleteWord');
 });
+
+
+Route::get('search-live={name}', 'HomeController@getWordsByNameLive');
 
 

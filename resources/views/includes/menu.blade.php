@@ -3,11 +3,12 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <form class="form-inline my-2 my-lg-0" action="{{ LaravelLocalization::getLocalizedURL(null, '/search', [], true) }}" method="get">
+        <form class="form-inline my-2 my-lg-0"  action="{{ LaravelLocalization::getLocalizedURL(null, '/search', [], true) }}" method="get">
         {{ csrf_field() }}
-            <input class="form-control mr-sm-2" type="search" placeholder="{{__('sidebar.search')}}" aria-label="Search" name="find">
+            <input class="form-control mr-sm-2" id='search' type="search" placeholder="{{__('sidebar.search')}}" aria-label="Search" name="find">
             <button class="btn btn-primary my-2 my-sm-0" type="submit">@lang('sidebar.search')</button>
         </form>
+
 
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
@@ -33,15 +34,15 @@
                 </a>
                 <ul class="dropdown-menu" role="menu">
                 <li>
-                <a class="nav-link" href="#">@lang('sidebar.glossary')</a>
+                <a class="nav-link" href="{{ LaravelLocalization::getLocalizedURL(null, '/glossary/user/id='.Auth::user()->id, [], true) }}">@lang('sidebar.glossary')</a>
                     </li>
                     <li>
-                    <a class="nav-link" href="{{ url('/logout') }}"
+                    <a class="nav-link" href="{{ LaravelLocalization::getLocalizedURL(null, '/logout', [], true) }}"
                             onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">
                             @lang('sidebar.logout')
                         </a>
-                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                        <form id="logout-form" action="{{ LaravelLocalization::getLocalizedURL(null, '/logout', [], true) }}" method="POST" style="display: none;">
                             {{ csrf_field() }}
                         </form>
                     </li>
@@ -51,3 +52,27 @@
     </ul>
     </div>
 </nav>
+
+<!-- <script>
+  $( function($name) {
+    var availableTags = [];
+    $.ajax({
+            url: '{{ url('search-live=') }}' + $('#search').val(),
+            dataType: 'json',
+            success: function (data) {
+                availableTags = data;
+                echo(data);
+
+            },
+            error: function (data) {
+            }
+        });
+
+    $( "#tags" ).autocomplete({
+      source: availableTags
+    });
+  } );
+  </script> -->
+
+
+
