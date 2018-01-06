@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App;
+use App\Http\LaravelLocalization;
 use App\Word;
 use App\Category;
 
@@ -18,6 +20,12 @@ class HomeController extends Controller
     {
         $categories=\App\Category::all();
         return view("layouts.app",["categories"=>$categories]);
+    }
+
+    public function locale($locale)
+    {    
+        LaravelLocalization::setLocale($locale);
+        return redirect()->back();   
     }
 
     public function wordByID($id)
@@ -40,14 +48,14 @@ class HomeController extends Controller
         return view('pages.getwordsearch', ["words"=>$words,"categories"=>$categories]);
     }
 
-    public function descriptionByWordAndCategoryID($word_id, $category_id)
+    public function descriptionByWordAndCategoryID($category_id, $word_id)
     {
         $word=\App\Word::find($word_id);
         $description=DB::table('descriptions')
         ->join('categories', 'categories.id', '=', 'descriptions.category_fk')
         ->where('categories.id', $category_id)
         ->where('descriptions.word_fk', $word_id)
-        ->select('descriptions.english')
+        ->select('descriptions.*')
         ->get(); 
         $categories=\App\Category::all();
         return view("pages.getdescription",["word"=>$word,"description"=>$description,"categories"=>$categories]);

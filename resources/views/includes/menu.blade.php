@@ -10,22 +10,22 @@
         </form>
 
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
             <li class="nav-item active">
-                <a class="nav-link" href="#">English</a>
+                @if($properties['name'] != LaravelLocalization::getCurrentLocaleName())<a class="nav-link" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                {{ $properties['native'] }}
+                </a>
+                @endif
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Eesti</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Русский</a>
-            </li>
+            @endforeach
         </ul>
+  
 
         <ul class="navbar-nav navbar-right">
         <!-- Authentication Links -->
         @if (Auth::guest())
-            <li class="nav-item active"><a class="nav-link proba" href="{{ url('/login') }}">Login</a></li>
-            <li class="nav-item active"><a class="nav-link proba" href="{{ url('/register') }}">Register</a></li>
+            <li class="nav-item active"><a class="nav-link proba" href="{{ LaravelLocalization::getLocalizedURL(null, '/login', [], true) }}">@lang('sidebar.login')</a></li>
+            <li class="nav-item active"><a class="nav-link proba" href="{{ LaravelLocalization::getLocalizedURL(null, '/register', [], true) }}">@lang('sidebar.register')</a></li>
         @else
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle proba" data-toggle="dropdown" role="button" aria-expanded="false">

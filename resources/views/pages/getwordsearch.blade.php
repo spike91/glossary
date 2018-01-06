@@ -1,4 +1,7 @@
 <!doctype html>
+<?php $language = strtolower(LaravelLocalization::getCurrentLocaleName());
+$categoryLanguage = 'category'.$language;
+?>
 @extends('layouts.app')
 
 @section('content')
@@ -9,7 +12,8 @@
         <tbody>
             @foreach ($words as $w)
                 <tr>
-                    <td><a href="{{ URL::to('word/'.$w->id.'/'.$w->categoryID) }}" class="list-group-item list-group-item-action">{{$w->english}} ({{$w->categoryEnglish}})</a></td>
+                    <td><a href="{{ LaravelLocalization::getLocalizedURL(null, 'word/'.$w->id.'/'.$w->categoryID, [], true) }}"
+                    class="list-group-item list-group-item-action">{{$w->$language}} ({{$w->categoryLanguage}})</a></td>
                 </tr>
             @endforeach
         </tbody>
