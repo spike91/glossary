@@ -7,5 +7,7 @@ return [
     'register' => 'Register',
     'categories' => 'Categories',
     'language' => 'english',
-    'name' => 'Name'
+    'name' => 'Name',
+    "logout" => 'Logout',
+    'glossary' => 'Glossary'
 ];

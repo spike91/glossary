@@ -13,7 +13,7 @@
         @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
             <li class="nav-item active">
                 @if($properties['name'] != LaravelLocalization::getCurrentLocaleName())<a class="nav-link" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                {{ $properties['native'] }}
+                {{ mb_convert_case($properties['native'], MB_CASE_TITLE, "UTF-8") }}
                 </a>
                 @endif
             </li>
@@ -33,13 +33,13 @@
                 </a>
                 <ul class="dropdown-menu" role="menu">
                 <li>
-                <a class="nav-link" href="#">User glossary</a>
+                <a class="nav-link" href="#">@lang('sidebar.glossary')</a>
                     </li>
                     <li>
                     <a class="nav-link" href="{{ url('/logout') }}"
                             onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">
-                            Logout
+                            @lang('sidebar.logout')
                         </a>
                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                             {{ csrf_field() }}

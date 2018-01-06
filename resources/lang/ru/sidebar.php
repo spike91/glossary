@@ -7,5 +7,7 @@ return [
     'register' => 'Регистрация',
     'categories' => 'Категории',
     'language' => 'russian',
-    'name' => 'Имя'
+    'name' => 'Имя',
+    "logout" => 'Выйти',
+    'glossary' => 'Словарь'
 ];

@@ -7,6 +7,8 @@ return [
     'register' => 'Registreeru',
     'categories' => 'Kategooriad',
     'language' => 'estonian',
-    'name' => 'Nimi'
+    'name' => 'Nimi',
+    "logout" => 'Logi välja',
+    'glossary' => 'Sõnastik'
 
 ];
