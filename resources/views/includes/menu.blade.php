@@ -5,8 +5,8 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <form class="form-inline my-2 my-lg-0" action="/search" method="post">
         {{ csrf_field() }}
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="find">
-            <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+            <input class="form-control mr-sm-2" type="search" placeholder="{{__('sidebar.search')}}" aria-label="Search" name="find">
+            <button class="btn btn-primary my-2 my-sm-0" type="submit">@lang('sidebar.search')</button>
         </form>
 
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
