@@ -36,16 +36,17 @@ class HomeController extends Controller
 
     public function getWordsByName()
     {
-        $name = $_POST['find'];
+        $name = $_GET['find'];
         $words=DB::table("words")
         ->join('descriptions', 'words.id', '=', 'descriptions.word_fk')
         ->join('categories', 'categories.id', '=', 'descriptions.category_fk')     
         ->where('words.english','ilike',"%$name%")
         ->orWhere('words.russian','ilike',"%$name%")
         ->orwhere('words.estonian','ilike',"%$name%")
-        ->select('words.id','words.english','categories.id as categoryID','categories.english as categoryEnglish')->get();
-        $categories=\App\Category::all();
-        return view('pages.getwordsearch', ["words"=>$words,"categories"=>$categories]);
+        ->select('words.*', 'categories.id as id_category', 'categories.english as english_category', 'categories.estonian as estonian_category', 'categories.russian as russian_category')->get();
+
+
+        return view('pages.getwordsearch', ["words"=>$words]);
     }
 
     public function descriptionByWordAndCategoryID($category_id, $word_id)
