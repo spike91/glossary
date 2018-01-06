@@ -6,5 +6,6 @@ return [
     'login' => 'Ввойти',
     'register' => 'Регистрация',
     'categories' => 'Категории',
-    'language' => 'russian'
+    'language' => 'russian',
+    'name' => 'Имя'
 ];

@@ -6,5 +6,6 @@ return [
     'login' => 'Login',
     'register' => 'Register',
     'categories' => 'Categories',
-    'language' => 'english'
+    'language' => 'english',
+    'name' => 'Name'
 ];
