@@ -57,10 +57,10 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'localize' => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRoutes::class,
-		'localizationRedirect' => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRedirectFilter::class,
-		'localeSessionRedirect' => \Mcamara\LaravelLocalization\Middleware\LocaleSessionRedirect::class,
-        'localeViewPath' => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationViewPath::class,
+        'localize' => \App\Http\Middleware\LaravelLocalizationRoutes::class,
+		'localizationRedirect' => \App\Http\Middleware\LaravelLocalizationRedirectFilter::class,
+		'localeSessionRedirect' => \App\Http\Middleware\LocaleSessionRedirect::class,
+        'localeViewPath' => \App\Http\Middleware\LaravelLocalizationViewPath::class,
 		
     ];
 }
