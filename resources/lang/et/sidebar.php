@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'password' => 'Parool',
     'search' => 'Otsing',
     'login' => 'Logi sisse',
     'register' => 'Registreeru',
