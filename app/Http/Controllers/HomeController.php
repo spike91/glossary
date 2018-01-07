@@ -24,7 +24,8 @@ class HomeController extends Controller
 
     public function dashboard()
     {
-        return view("admin.dashboard");
+        $users=App\User::all();
+        return view("admin.dashboard", compact('users'));
     }
 
     public function descriptionEdit($id)
@@ -96,6 +97,14 @@ return $words;
 
         if(count($raws)>0) return true;
         else return false;
+    }
+
+    public function isAdmin($user)
+    {
+        $user=App\User::find($user);
+
+        if($user && $user->isadmin) return true;
+        return false;
     }
 
     public function glossaryByUserId($id)

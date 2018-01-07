@@ -41,7 +41,8 @@ class User extends Authenticatable
 
     public function isAdmin()
     {
-        return true; // this looks for an admin column in your users table
+        $controller = new HomeController();
+        return $controller->isAdmin($this->id);
     }
 
     
