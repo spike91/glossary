@@ -16,6 +16,6 @@ class Description extends Model
     }
     public function word() 
     {
-        return $this->belongsTo(Word::class);
+        return $this->belongsTo(Word::class,'id');
     }
 }
