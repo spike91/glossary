@@ -9,6 +9,9 @@ return [
     'language' => 'estonian',
     'name' => 'Nimi',
     "logout" => 'Logi välja',
-    'glossary' => 'Sõnastik'
+    'glossary' => 'Sõnastik',
+    'dashboard' => 'Armatuurlaud',
+    'edit' => 'Redigeeri',
+    'add' => 'Lisa'
 
 ];

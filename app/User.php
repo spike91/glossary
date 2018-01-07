@@ -39,5 +39,10 @@ class User extends Authenticatable
         return $controller->WordIsExistInGlossary($this->id,$description);
     }
 
+    public function isAdmin()
+    {
+        return true; // this looks for an admin column in your users table
+    }
+
     
 }

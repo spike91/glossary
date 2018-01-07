@@ -9,5 +9,8 @@ return [
     'language' => 'english',
     'name' => 'Name',
     "logout" => 'Logout',
-    'glossary' => 'Glossary'
+    'glossary' => 'Glossary',
+    'dashboard' => 'Dashboard',
+    'edit' => 'Edit',
+    'add' => 'Add'
 ];

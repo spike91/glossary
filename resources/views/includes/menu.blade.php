@@ -24,10 +24,14 @@
 
         <ul class="navbar-nav navbar-right">
         <!-- Authentication Links -->
+
         @if (Auth::guest())
             <li class="nav-item active"><a class="nav-link proba" href="{{ LaravelLocalization::getLocalizedURL(null, '/login', [], true) }}">@lang('sidebar.login')</a></li>
             <li class="nav-item active"><a class="nav-link proba" href="{{ LaravelLocalization::getLocalizedURL(null, '/register', [], true) }}">@lang('sidebar.register')</a></li>
         @else
+            @if( Auth::user()->isAdmin())
+                <li class="nav-item active"><a class="nav-link proba" href="{{ LaravelLocalization::getLocalizedURL(null, '/dashboard', [], true) }}">@lang('sidebar.dashboard')</a></li>
+            @endif
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle proba" data-toggle="dropdown" role="button" aria-expanded="false">
                     {{ Auth::user()->name }} <span class="caret"></span>

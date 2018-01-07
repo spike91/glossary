@@ -9,5 +9,8 @@ return [
     'language' => 'russian',
     'name' => 'Имя',
     "logout" => 'Выйти',
-    'glossary' => 'Словарь'
+    'glossary' => 'Словарь',
+    'dashboard' => 'Панель админа',
+    'edit' => 'Изменить',
+    'add' => 'Добавить'
 ];

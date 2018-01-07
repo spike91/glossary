@@ -19,8 +19,32 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $categories=\App\Category::all();
-        return view("layouts.app",["categories"=>$categories]);
+        return view("layouts.app");
+    }
+
+    public function dashboard()
+    {
+        return view("admin.dashboard");
+    }
+
+    public function descriptionEdit($id)
+    {
+        return view("description.edit");
+    }
+
+    public function descriptionAdd()
+    {
+        return view("description.add");
+    }
+
+    public function categoryAdd()
+    {
+        return view("category.add");
+    }
+
+    public function categoryEdit($id)
+    {
+        return view("category.edit");
     }
 
     public function locale($locale)
